@@ -16,6 +16,17 @@ main {
   margin: 0 auto;
 }
 
+#version {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  font-weight: bold;
+  background-color: #ddd;
+  opacity: 0.8;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
 /* --- HEADER --- */
 header {
   display: flex;

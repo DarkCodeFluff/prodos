@@ -1,9 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     fetch("http://localhost:4000/profile", {
@@ -15,11 +16,21 @@ export default function Header() {
     });
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log(userInfo);
+      console.log(username);
+      setSeconds((seconds) => seconds + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   function logout() {
     fetch("http://localhost:4000/logout", {
       credentials: "include",
       method: "POST",
     });
+
     setUserInfo(null);
   }
 
@@ -34,7 +45,7 @@ export default function Header() {
         {username && (
           <>
             <Link to="/create">Create new post</Link>
-            <Link to="/logout" onClick={logout}>
+            <Link to="/" onClick={logout}>
               Logout
             </Link>
           </>
