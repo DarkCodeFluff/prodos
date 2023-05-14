@@ -49,5 +49,6 @@ For the longest time I have been postponing it... However, I can postpone it no 
 > - Implemented a **Version** tag;
 > - Improved the ReadMe format;
 > - **Fixed Bug** - Post contain HTML instead of styling the content;
+> - **Fixed Bug** - User left on blank page after Logout;
 >
 > <br/><br/>
